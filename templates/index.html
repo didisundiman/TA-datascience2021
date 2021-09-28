@@ -136,7 +136,21 @@
                 {% if (kinerja_umkm) != 0 %}
                 <div class="mt-8">
                     <p>Indikator <i>Knowledgepreneur Leadership</i> (KPL) sebesar {{ kpl_value }}, <i>Technopreneur harmony</i> (TPH) {{ tph_value }} dan 
-                        <i>Adaptive mechanism</i> (AM): {{ am_value }} pada UMKM ini akan menghasilkan tingkat kinerja sebesar {{ kinerja_umkm }}
+                        <i>Adaptive mechanism</i> (AM) {{ am_value }} pada UMKM ini akan menghasilkan tingkat kinerja sebesar {{ kinerja_umkm }}
+                        
+                        {% if (kinerja_umkm) <= 43.75 %}
+                            (kategori: rendah)
+                        {% endif %}
+
+                        {% if (kinerja_umkm) > 43.75%}
+                            {% if (kinerja_umkm) <= 70.83%}
+                                (kategori: sedang)
+                            {% endif %}
+                            {% if (kinerja_umkm) > 70.83%}
+                                (kategori: tinggi)
+                            {% endif %}
+                        {% endif %}
+
                     </p>
 
                     <br>
@@ -177,7 +191,7 @@
                 />
                 <img
                     class="h-24 md:h-28"
-                    src="http://uvers2.ac.id/public/images/brand/uvers-logo.svg"
+                    src="https://github.com/didisundiman/python-for-us/blob/main/uvers-logo.png"
                     alt="logo-dts"
                 />
             </div>

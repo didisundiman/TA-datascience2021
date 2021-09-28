@@ -34,8 +34,8 @@ def predict():
     #     data.extend([1, 0])
 
     data.append(int(kpl_value))
-        data.extend(int(tph_value))
-        data.extend(int(am_value))
+    data.extend([int(tph_value)])
+    data.extend([int(am_value)])
 
     prediction = model.predict([data])
     output = round(prediction[0], 2)

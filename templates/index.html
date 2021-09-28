@@ -26,7 +26,7 @@
             md:flex-row
         "
     >
-        <main class="bg-white p-16 rounded-lg">
+        <main class="bg-white p-8 rounded-lg">
             <h1 class="text-3xl font-bold mb-8">
                 Prediksi Kinerja UMKM:
             </h1>
@@ -36,38 +36,10 @@
                 method="post"
                 class="flex flex-col"
             >
-                <!-- <label for="Usia" class="mb-2">Usia</label>
-                <input
-                    type="text"
-                    name="Usia"
-                    placeholder="Usia"
-                    required="required"
-                    class="p-4 bg-gray-100 rounded-md"
-                /> -->
-
-                <!-- <label for="Jenis Kelamin" class="mt-4 mb-2"
-                    >Jenis Kelamin:</label
-                >
-                <select
-                    name="Jenis Kelamin"
-                    id="Jenis Kelamin"
-                    class="p-4 bg-gray-100 rounded-md"
-                >
-                    <option value="Laki-laki">Laki-laki</option>
-                    <option value="Perempuan">Perempuan</option>
-                </select>
-
-                <label for="Perokok" class="mt-4 mb-2">Perokok:</label>
-                <select
-                    name="Perokok"
-                    id="Perokok"
-                    class="p-4 bg-gray-100 rounded-md"
-                >
-                    <option value="Ya">Ya</option>
-                    <option value="Tidak">Tidak</option>
-                </select> -->
-
-                <label for="KPL">Knowledgepreneur Leadership (between 0 - 100):</label>
+                <label for="KPL">
+                    <b>Knowledgepreneur Leadership</b> (between 0 - 100):<br>
+                    <i>Kapasitas kepemimpinan kewirausahaan berbasis pengetahuan pada UMUM.</i>
+                </label>
                 <input type="range" id="KPL" name="KPL" min="0" max="100">
                 <p>Value: <span id="kpl_value"></span></p>
                   
@@ -81,10 +53,13 @@
                     }
                 </script>
                 
-                <br>
-                <br>
+                <br><br>
 
-                <label for="TPH">Technopreneur harmony (between 0 - 100):</label>
+                <label for="TPH">
+                    <b>Technopreneur harmony</b> (between 0 - 100):<br>
+                    <i>Tingkat penerapan dan integrasi teknologi dalam proses bisnis UMKM.</i>
+
+                </label>
                 <input type="range" id="TPH" name="TPH" min="0" max="100">
                 <p>Value: <span id="tph_value"></span></p>
                 
@@ -98,10 +73,12 @@
                     }
                 </script>
                 
-                <br>
-                <br>
+                <br><br>
               
-                <label for="AM">Adaptive mechanism (between 0 - 100):</label>
+                <label for="AM">
+                    <b>Adaptive mechanism</b> (between 0 - 100):<br>
+                    <i>Kemampuan dan mekanisme adaptasi UMKM pada perubahan lingkungan bisnis.</i>
+                </label>
                 <input type="range" id="AM" name="AM" min="0" max="100">
                 <p>Value: <span id="am_value"></span></p>
                 
@@ -150,20 +127,44 @@
             </form>
         </main>
         <section class="mt-8 h-full flex-auto rounded-lg md:mt-0 md:ml-8">
-            <div class="bg-white p-16 rounded-lg">
+            <div class="bg-white p-8 rounded-lg">
                 <h1 class="text-2xl mb-8">
                     Estimasi Kinerja UMKM Anda adalah
                 </h1>
+
                 <h2 class="text-5xl font-bold">Point Kinerja {{ kinerja_umkm }}</h2>
                 {% if (kinerja_umkm) != 0 %}
                 <div class="mt-8">
-                    <p>Indikator Knowledgepreneur Leadership (KPL): {{ kpl_value }}</p>
-                    <p>Indikator Technopreneur harmony (TPH): {{ tph_value }}</p>
-                    <p>Indikator Adaptive mechanism (AM): {{ am_value }}</p>
+                    <p>Indikator <i>Knowledgepreneur Leadership</i> (KPL) sebesar {{ kpl_value }}, <i>Technopreneur harmony</i> (TPH) {{ tph_value }} dan 
+                        <i>Adaptive mechanism</i> (AM): {{ am_value }} pada UMKM ini akan menghasilkan tingkat kinerja sebesar {{ kinerja_umkm }}
+                    </p>
+
+                    <br>
+                    <p><i>Note:</i></p>
+                    <p>
+                        Hasil pengujian dengan model <i>Random Forest Regression</i> menunjukkan bahwa masing-masing <i>features</i> memberikan kontribusinya pada kinerja UMKM sebesar KPL=18%, TPH=14% dan
+                        AM dengan kontribusi terbesar 68%, hal ini menunjukkan pentingnya kemampuan adaptasi UMKM untuk bisa mencapai kinerja maksimal.                             
+                    </p>
+
+                    <br>
+                    <p><i>References:</i></p>
+                    <p>
+                        <ul>
+                            <li>
+                                *Features yang digunakan pada aplikasi ini, KPL, TPH, dan AM menggunakan hasil penelitian kami yang dipublikasikan dalam artikel journal
+                                <a href="https://www.inderscienceonline.com/doi/abs/10.1504/IJBSR.2019.098650" target="_blank">Sundiman et al., 2019</a>                             
+                            </li>
+                            <li>
+                                *Template design aplikasi website ini diambil dari 
+                                <a href="https://github.com/alfanme/dts-deployment-linreg" target="_blank">Github alfanme</a>                             
+                            </li>
+                        </ul>
+                    </p>
+                        
                 </div>
                 {% endif %}
             </div>
-            <div class="flex justify-around bg-white p-16 rounded-lg mt-8">
+            <div class="flex justify-around bg-white p-8 rounded-lg mt-8">
                 <img
                     class="h-24 md:h-28"
                     src="https://digitalent.kominfo.go.id/assets/@images/logo.png"
@@ -173,6 +174,11 @@
                     class="h-24 md:h-28"
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_of_Ministry_of_Communication_and_Information_Technology_of_the_Republic_of_Indonesia.svg/604px-Logo_of_Ministry_of_Communication_and_Information_Technology_of_the_Republic_of_Indonesia.svg.png"
                     alt="logo-kominfo"
+                />
+                <img
+                    class="h-24 md:h-28"
+                    src="http://uvers2.ac.id/public/images/brand/uvers-logo.svg"
+                    alt="logo-dts"
                 />
             </div>
         </section>

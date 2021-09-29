@@ -38,7 +38,7 @@
             >
                 <label for="KPL">
                     <b>Knowledgepreneur Leadership</b> (between 0 - 100):<br>
-                    <i>Kapasitas kepemimpinan kewirausahaan berbasis pengetahuan pada UMUM.</i>
+                    <i>Kapasitas kepemimpinan kewirausahaan berbasis pengetahuan pada UMKM.</i>
                 </label>
                 <input type="range" id="KPL" name="KPL" min="0" max="100">
                 <p>Value: <span id="kpl_value"></span></p>
@@ -135,8 +135,8 @@
                 <h2 class="text-5xl font-bold">Point Kinerja {{ kinerja_umkm }}</h2>
                 {% if (kinerja_umkm) != 0 %}
                 <div class="mt-8">
-                    <p>Indikator <i>Knowledgepreneur Leadership</i> (KPL) sebesar {{ kpl_value }}, <i>Technopreneur harmony</i> (TPH) {{ tph_value }} dan 
-                        <i>Adaptive mechanism</i> (AM) {{ am_value }} pada UMKM ini akan menghasilkan tingkat kinerja sebesar {{ kinerja_umkm }}
+                    <p>Indikator <i>Knowledgepreneur Leadership (KPL)</i> sebesar {{ kpl_value }}, <i>Technopreneur harmony (TPH)</i> {{ tph_value }} dan 
+                        <i>Adaptive mechanism (AM)</i> {{ am_value }} pada UMKM ini akan menghasilkan tingkat kinerja sebesar {{ kinerja_umkm }}
                         
                         {% if (kinerja_umkm) <= 43.75 %}
                             (kategori: rendah)
@@ -156,8 +156,8 @@
                     <br>
                     <p><i>Note:</i></p>
                     <p>
-                        Hasil pengujian dengan model <i>Random Forest Regression</i> menunjukkan bahwa masing-masing <i>features</i> memberikan kontribusinya pada kinerja UMKM sebesar KPL=18%, TPH=14% dan
-                        AM dengan kontribusi terbesar 68%, hal ini menunjukkan pentingnya kemampuan adaptasi UMKM untuk bisa mencapai kinerja maksimal.                             
+                        Hasil pengujian model dengan algoritma <i>Random Forest Regression</i> menunjukkan bahwa masing-masing <i>feature</i> memberikan kontribusinya pada kinerja UMKM sebesar KPL=18%, TPH=14% dan
+                        AM dengan kontribusi terbesar 68%, dengan nilai MAE=8.8, hal ini menunjukkan pentingnya kemampuan adaptasi UMKM untuk bisa mencapai kinerja maksimal.                             
                     </p>
 
                     <br>
